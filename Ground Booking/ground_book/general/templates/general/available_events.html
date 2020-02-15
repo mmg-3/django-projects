@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Events{% endblock %}
+{% block content %}
+<h1>This is Event page</h1>
+<style>
+  img{
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+  }
+</style>
+{% for event in events %}
+<div class="container marketing">
+  <div class="row featurette">
+    <div class="col-md-7">
+      <h2 class="featurette-heading">{{ event.title}}</h2>
+      <p class="lead">{{ event.description }}</p>
+      <p><a class="btn btn-secondary" href="{% url 'general:single' slug=event.slug %}" role="button">View details &raquo;</a></p>
+    </div>
+    <div class="col-md-5">
+      <img src="{{ event.image.url }}" alt="" class="img-fluid img-thumbnail" style="width:400px;height:400px;">
+     </div>
+  </div>
+  </div>
+  {% endfor %}
+{% endblock %}

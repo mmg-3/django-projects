@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}Gallery{% endblock %}
+{% block content %}
+{% load static %}
+<h1>Action Caught On Camera</h1>
+<img class='row-lg-1 img-fluid cor-img' src="{% static 'general/images/_MG_3774.jpg' %}" style="width:1300px;height:400px;" alt="">
+<div class="container">
+      {% for event in gallery %}
+            <h2>{{ event.title }}</h2>
+            <style>
+              <!-- .scale {
+                  transform: scaleY(1.05);
+                  padding-top: 5px;
+                } -->
+              .flex-column {
+                  max-width : 260px;
+                }
+              .container{
+                background: #f9f9f9;
+              }
+              img {
+                margin: 5px;
+              }
+              h1 {
+                margin-left: 30px;
+
+              }
+              .cor-img{
+                margin-left: 30px;
+                margin-right: 10px;
+
+              }
+
+            </style>
+            <div class="container-fluid">
+              <div class="d-flex flex-row flex-wrap justify-content-center">
+                <div class="d-flex flex-column">
+                  <img src="{{ event.image1.url }}" alt="" class="img-fluid">
+                  <img src="{{ event.image2.url }}" alt="" class="img-fluid">
+                </div>
+                <div class="d-flex flex-column">
+                  <img src="{{ event.image3.url }}" alt="" class="img-fluid">
+                  <img src="{{ event.image4.url }}" alt="" class="img-fluid">
+                </div>
+                <div class="d-flex flex-column">
+                  <img src="{{ event.image5.url }}" alt="" class="img-fluid mb-2">
+                  <img src="{{ event.image6.url }}" alt="" class="img-fluid">
+                </div>
+                <div class="d-flex flex-column">
+                  <img src="{{ event.image7.url }}" alt="" class="img-fluid m-1 p-1">
+                  <img src="{{ event.image8.url }}" alt="" class="img-fluid image m-1 p-1">
+                </div>
+              </div>
+            </div>
+
+            <p>{{ event.description }}</p>
+        {% endfor %}
+</div>
+{% endblock %}

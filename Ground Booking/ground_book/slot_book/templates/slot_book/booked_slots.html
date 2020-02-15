@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container"><br>
+  <h3>List of already booked slots</h3> <br>
+  <table class="table table-hover">
+    <th>Booked By</th>
+    <th>Team Name</th>
+    <th>Booking For Date</th>
+    <th>Slot</th>
+  {% for slot in slots %}
+  <tr>
+    <td>{{slot.name}}</td>
+    <td>{{slot.team_name}}</td>
+    <td>{{slot.slot_date}}</td>
+    <td>{{slot.slot_num}}</td>
+  </tr>
+  {% endfor %}
+  </table>
+
+  <a href="{% url 'booking:booking_info' %}" class="btn btn-primary">Go To Booking Page</a>
+</div>
+{% endblock %}

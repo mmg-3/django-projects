@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}{{availevents.title}}{% endblock %}
+{% block content %}
+<div class="container fluid">
+<h1>{{availevents.title}}</h1>
+<h5>{{availevents.description}}</h5>
+<p><a class="btn btn-secondary" href="{% url 'booking:booked' %}" role="button">Book Now &raquo;</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load bootstrap3 %}
+
+{% block title %}Booking{% endblock %}
+{% block css_link %}
+<link href="{% static 'slot_book/js/jquery-ui-1.12.1/jquery-ui.min.css' %}" rel="stylesheet">
+<link href="{% static 'slot_book/js/jquery-ui-1.12.1/jquery-ui.structure.min.css' %}" rel="stylesheet">
+<link href="{% static 'slot_book/js/jquery-ui-1.12.1/jquery-ui.theme.min.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="container fluid">
+<h1>This is booking page</h1>
+<form method="POST" action="{% url 'booking:booking_info' %}" >
+	{% csrf_token %}
+	<!-- {{ form.as_p }} -->
+  {% bootstrap_form form %}
+	<input type="submit" value="Book Now" class="btn btn-primary btn-large">
+</form>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="{% static 'slot_book/js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'slot_book/js/jquery-ui-1.12.1/jquery-ui.js' %}"></script>
+<script src="{% static 'slot_book/js/custom.js' %}"></script>
+{% endblock %}
